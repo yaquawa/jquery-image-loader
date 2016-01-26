@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Loader Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<button>Load Images</button>
+
+<div class="hide">
+    <img class="image" src="images/IMG_1.jpg" alt="cat">
+    <div class="image" style="background-image:url('images/IMG_2.jpg');"></div>
+</div>
+
+
+<!---------------------------- libs ---------------------------->
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="../dist/ImageLoader-global.js"></script>
+
+<!------------------------- main logic ------------------------->
+<script>
+    $('button').on('click', function () {
+        var imageLoader = $.ImageLoader(), // Create a new ImageLoader instance
+            $images     = $('.image'),
+            imgs        = [
+                'https://static.pexels.com/photos/6151/animal-cute-fur-white.jpg', // Image url
+                $images[0], // <img> element
+                $images[1] // Element has a `background-image`
+            ];
+
+        imageLoader
+            .load(imgs) // Start load images
+            .progress(function (img) {
+                console.log('Loading(' + img.percentage + '%)...', img);
+            })
+            .done(function (img) {
+                console.log('All images loaded!', img);
+            });
+
+        /*
+         // Alternatively, you can use the `loadImage` method.
+
+         $images
+             .loadImg()
+             .progress(function (img) {
+                console.log('Loading(' + img.percentage + '%)...', img);
+             })
+             .done(function (img) {
+                console.log('All images loaded!', img);
+             });
+         */
+    });
+</script>
+
+</body>
+</html>
