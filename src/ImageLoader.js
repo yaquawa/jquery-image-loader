@@ -63,7 +63,7 @@ class ImageLoader {
                     $img = $(img);
                 } else {
                     // assume `img` is a Element which has a background-image
-                    var imgUrl = $(img).css('background-image').match(/url\("(.*)"\)/);
+                    var imgUrl = $(img).css('background-image').match(/url\("?(.*?)"?\)/);
                     if (imgUrl !== null) {
                         $img = $('<img>').attr('src', imgUrl[1]);
                     } else {
