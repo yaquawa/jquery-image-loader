@@ -1,6 +1,6 @@
 {
   "name": "jquery-image-loader",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Simple jQuery plugin for loading images.",
   "main": "src/ImageLoader.js",
   "scripts": {

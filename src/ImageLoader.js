@@ -15,7 +15,7 @@ class ImageLoader {
     load(imgs, timeout) {
         var d = this.$.Deferred();
 
-        setTimeout((()=> this.doLoad.apply(this, [d, imgs, timeout])), 0);
+        this.doLoad.apply(this, [d, imgs, timeout]);
 
         return d.promise();
     }

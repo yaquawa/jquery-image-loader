@@ -50,13 +50,9 @@ var ImageLoader = function () {
     _createClass(ImageLoader, [{
         key: 'load',
         value: function load(imgs, timeout) {
-            var _this = this;
-
             var d = this.$.Deferred();
 
-            setTimeout(function () {
-                return _this.doLoad.apply(_this, [d, imgs, timeout]);
-            }, 0);
+            this.doLoad.apply(this, [d, imgs, timeout]);
 
             return d.promise();
         }
